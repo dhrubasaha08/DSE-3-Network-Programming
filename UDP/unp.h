@@ -21,7 +21,7 @@
 #include <sys/un.h>
 
 #define SERV_PORT 9877
-#define MAXBUFFSZ 2000 
+#define MAXLINE 80
 #define LISTENQ 1024
 #define SA struct sockaddr
 #endif
