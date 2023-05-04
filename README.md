@@ -24,4 +24,4 @@ This repository contains the code modifications for DSE3 Network Programming ass
 
 
 ## License
-This project is released under the Unlicense. See the `[LICENSE](LICENSE)` file for more information.
+This project is released under the Unlicense. See the [LICENSE](LICENSE) file for more information.
