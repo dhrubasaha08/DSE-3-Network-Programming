@@ -1,0 +1,20 @@
+#!/bin/bash
+
+echo "Give protocol"
+read protocol
+echo "Give server"
+read server
+echo "Give server port"
+read serv_port
+
+# Create a log folder if it doesn't already exist
+mkdir -p ../log
+
+# Get current timestamp in the format of yyyy-mm-dd_HH-MM-SS
+timestamp=$(date +%Y-%m-%d_%H-%M-%S)
+
+# Build log file name with timestamp
+log_file=log/dump_${timestamp}.txt
+
+# Run tcpdump with the specified filter and save the output to the log file
+sudo tcpdump -nn -S -X -i lo $protocol and host $server and port $serv_port -l | tee $log_file

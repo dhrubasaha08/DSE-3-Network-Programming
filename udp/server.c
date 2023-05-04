@@ -55,13 +55,12 @@ void update_client_data(unsigned char id, double value, double threshold) {
 
     if (average > threshold) {
         printf("Archiving: Client ID %u - Average value: %f\n", id, average);
-        // Archive data as needed
     }
 }
 
 int main(int argc, char *argv[]) {
     if (argc != 3) {
-        printf("Usage: ./server_modified <port> <v>\n");
+        printf("Usage: ./server <port> <v>\n");
         exit(1);
     }
 

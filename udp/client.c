@@ -19,7 +19,7 @@ typedef struct {
 
 int main(int argc, char *argv[]) {
     if (argc != 4) {
-        printf("Usage: ./client_modified <IP address> <port> <id>\n");
+        printf("Usage: ./client <IP address> <port> <id>\n");
         exit(1);
     }
 
