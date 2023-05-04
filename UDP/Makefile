@@ -1,9 +1,9 @@
 all: client server
 
-client: client.c common.h unp.h
+client: client.c
 		gcc -o client client.c
 
-server: server.c common.h unp.h
+server: server.c
 		gcc -o server server.c
 
 clean:

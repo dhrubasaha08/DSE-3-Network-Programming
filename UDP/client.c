@@ -1,88 +1,64 @@
+#include <arpa/inet.h>
+#include <netinet/in.h>
 #include <stdio.h>
-#include <string.h>
-#include <sys/time.h>
-#include <signal.h>
 #include <stdlib.h>
-#include <sys/select.h>
-#include "unp.h"
-#include "common.h"
+#include <string.h>
+#include <sys/socket.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <time.h>
 
+#define MAXBUFFSZ 320
+#define SA struct sockaddr
 
-int sockfd, to_exit = 0, i, select_no;
-socklen_t servAddrLen;
-struct sockaddr_in cliAddr, servAddr;
+typedef struct {
+    unsigned char id;
+    unsigned int numElmt;
+    double val[25];
+} myMsg_t;
 
-
-void ConvertToNbw(MyMsg_t *msg, int num)
-{
-    int i,j;
-    unsigned int tmp;
-    msg->numElmt = htonl(num);
-    for(i=0; i<num; i++)
-    {
-        tmp = htond(msg->a[i]);
-        memcpy(((unsigned char*)msg->a) + (i * sizeof(double)), &tmp, sizeof(double));
+int main(int argc, char *argv[]) {
+    if (argc != 4) {
+        printf("Usage: ./client_modified <IP address> <port> <id>\n");
+        exit(1);
     }
-}
 
-
-int main(int argc, char **argv)
-{
-    MyMsg_t txMsg;
-    unsigned char txbuff[sizeof(MyMsg_t)];
-    char rxMsg[10];
-    int i, j, select_no, servAddrLen;
-    fd_set readfd;
-    double v;
-
-    if (argc < 3) {
-        printf("Usage : <myclient> <server IP address> <server port>\n");
-        exit(0);
-    }
+    int sockfd;
+    struct sockaddr_in servAddr;
+    myMsg_t txMsg;
+    char rxMsg[MAXBUFFSZ];
+    unsigned char clientId;
+    clientId = atoi(argv[3]);
 
     sockfd = socket(AF_INET, SOCK_DGRAM, 0);
-    if (sockfd < 0) {
-        perror("socket creation failed");
-        exit(EXIT_FAILURE);
-    }
-
     bzero(&servAddr, sizeof(servAddr));
     servAddr.sin_family = AF_INET;
-    inet_pton(AF_INET, argv[1], &servAddr.sin_addr);
-    printf("%x\n", ntohl(servAddr.sin_addr.s_addr));
+    servAddr.sin_addr.s_addr = inet_addr(argv[1]);
     servAddr.sin_port = htons(atoi(argv[2]));
 
-    // Get the range of values to send from the server
-    recvfrom(sockfd, &v, sizeof(double), 0, (struct sockaddr *)&servAddr, &servAddrLen);
-    printf("Range of values to send: %f to %f\n", -v, v);
+    txMsg.id = atoi(argv[3]);
+    txMsg.numElmt = 25;
+    srand(time(0) * clientId);
 
-    srand48(17003);
-
-    // Send a message to the server every second, 10 times
-    for (i = 0; i < 10; i++) {
-        for (j = 0; j < 5; j++) {
-            txMsg.a[j] = -v + 2.0 * v * drand48();
-            printf("%f ", txMsg.a[j]);
-        }
-        printf("\n");
-
-        ConvertToNbw(&txMsg, 5);
-        memcpy(txbuff, &txMsg, sizeof(MyMsg_t));
-
-        sendto(sockfd, txbuff, sizeof(MyMsg_t), 0, (struct sockaddr *)&servAddr, sizeof(servAddr));
-
-        bzero(rxMsg, 10);
-        recvfrom(sockfd, &rxMsg, 10, 0, NULL, NULL);
-        fputs(rxMsg, stdout);
-        if (!strncmp(rxMsg, "NEXT MSG", 8)) {
-            printf("Server->Client: ");
-            fputs(rxMsg, stdout);
-            printf("\n");
-        } else {
-            printf("Terminated from server\n");
-            break;
-        }
-
-        sleep(1);
+    for (unsigned int i = 0; i < txMsg.numElmt; i++) {
+        txMsg.val[i] = (double)(rand() % 1000) / 100;
     }
+
+    socklen_t servAddrLen = sizeof(servAddr);
+    if (sendto(sockfd, &txMsg, sizeof(txMsg), 0, (SA *)&servAddr, servAddrLen) < 0) {
+        perror("sendto error");
+        exit(1);
+    }
+
+    // Receive value v from the server
+    if (recvfrom(sockfd, rxMsg, sizeof(rxMsg), 0, (SA *)&servAddr, &servAddrLen) < 0) {
+        perror("recvfrom error");
+        exit(1);
+    }
+
+    double v;
+    sscanf(rxMsg, "%lf", &v);
+    printf("Received value v: %f\n", v);
+
+    return 0;
 }
