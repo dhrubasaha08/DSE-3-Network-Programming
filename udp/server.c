@@ -63,6 +63,11 @@ void update_client_data(unsigned char id, double value, double threshold) {
     }
 }
 
+void sigint_handler(int signal) {
+    printf("\nCaught signal %d. Shutting down server...\n", signal);
+    exit(0);
+}
+
 int main(int argc, char *argv[]) {
     if (argc != 3) {
         printf("Usage: ./server <port> <v>\n");
@@ -79,7 +84,7 @@ int main(int argc, char *argv[]) {
     socklen_t cliAddrLen;
 
     sockfd = socket(AF_INET, SOCK_DGRAM, 0);
-    bzero(&servAddr, sizeof(servAddr));
+    memset(&servAddr, 0, sizeof(servAddr));
     servAddr.sin_family = AF_INET;
     servAddr.sin_addr.s_addr = htonl(INADDR_ANY);
     servAddr.sin_port = htons(port);
@@ -88,6 +93,8 @@ int main(int argc, char *argv[]) {
         perror("bind error");
         exit(1);
     }
+
+    signal(SIGINT, sigint_handler);
 
     init_clients();
 
@@ -99,23 +106,24 @@ int main(int argc, char *argv[]) {
         if (recv_len < 0) {
             perror("recvfrom error");
             exit(1);
-        }
+}
+    // Generate client ID based on the client's IP and port
+    unsigned char client_id = generate_client_id(&cliAddr);
 
-        // Generate client ID based on the client's IP and port
-        unsigned char client_id = generate_client_id(&cliAddr);
-
-        // Send value v to the client
-        snprintf(txMsg, sizeof(txMsg), "%.16lf",v);
-        if (sendto(sockfd, txMsg, strlen(txMsg), 0, (SA *)&cliAddr, cliAddrLen) < 0) {
-            perror("sendto error");
-            exit(1);
-        }
-
-        // Update client data and check the average
-        for (unsigned int i = 0; i < rxMsg.numElmt; i++) {
-            update_client_data(client_id, rxMsg.val[i], 0.75 * v);
-        }
+    // Send value v to the client
+    snprintf(txMsg, sizeof(txMsg), "%.16lf", v);
+    if (sendto(sockfd, txMsg, strlen(txMsg), 0, (SA *)&cliAddr, cliAddrLen) < 0) {
+        perror("sendto error");
+        exit(1);
     }
 
-    return 0;
+    // Update client data and check the average
+    for (unsigned int i = 0; i < rxMsg.numElmt; i++) {
+        update_client_data(client_id, rxMsg.val[i], 0.75 * v);
+    }
+}
+
+close(sockfd);
+
+return 0;
 }

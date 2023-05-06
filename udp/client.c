@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
     char rxMsg[MAXBUFFSZ];
 
     sockfd = socket(AF_INET, SOCK_DGRAM, 0);
-    bzero(&servAddr, sizeof(servAddr));
+    memset(&servAddr, 0, sizeof(servAddr));
     servAddr.sin_family = AF_INET;
     servAddr.sin_addr.s_addr = inet_addr(argv[1]);
     servAddr.sin_port = htons(atoi(argv[2]));
@@ -55,6 +55,8 @@ int main(int argc, char *argv[]) {
     double v;
     sscanf(rxMsg, "%lf", &v);
     printf("Received value v: %f\n", v);
+
+    close(sockfd);
 
     return 0;
 }
