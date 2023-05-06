@@ -19,7 +19,6 @@
 #define SA struct sockaddr
 
 typedef struct {
-    unsigned char id;
     unsigned int numElmt;
     double val[25];
 } myMsg_t;
@@ -42,6 +41,12 @@ void init_clients() {
             clients[i].values[j] = 0.0;
         }
     }
+}
+
+unsigned char generate_client_id(struct sockaddr_in *client_addr) {
+    unsigned int ip = ntohl(client_addr->sin_addr.s_addr);
+    unsigned int port = ntohs(client_addr->sin_port);
+    return (unsigned char)((ip + port) % MAX_CLIENTS);
 }
 
 void update_client_data(unsigned char id, double value, double threshold) {
@@ -96,8 +101,11 @@ int main(int argc, char *argv[]) {
             exit(1);
         }
 
+        // Generate client ID based on the client's IP and port
+        unsigned char client_id = generate_client_id(&cliAddr);
+
         // Send value v to the client
-        snprintf(txMsg, sizeof(txMsg), "%.16lf", v);
+        snprintf(txMsg, sizeof(txMsg), "%.16lf",v);
         if (sendto(sockfd, txMsg, strlen(txMsg), 0, (SA *)&cliAddr, cliAddrLen) < 0) {
             perror("sendto error");
             exit(1);
@@ -105,7 +113,7 @@ int main(int argc, char *argv[]) {
 
         // Update client data and check the average
         for (unsigned int i = 0; i < rxMsg.numElmt; i++) {
-            update_client_data(rxMsg.id, rxMsg.val[i], 0.75 * v);
+            update_client_data(client_id, rxMsg.val[i], 0.75 * v);
         }
     }
 

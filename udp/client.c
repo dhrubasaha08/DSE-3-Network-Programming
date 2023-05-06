@@ -12,14 +12,13 @@
 #define SA struct sockaddr
 
 typedef struct {
-    unsigned char id;
     unsigned int numElmt;
     double val[25];
 } myMsg_t;
 
 int main(int argc, char *argv[]) {
-    if (argc != 4) {
-        printf("Usage: ./client <IP address> <port> <id>\n");
+    if (argc != 3) {
+        printf("Usage: ./client <IP address> <port>\n");
         exit(1);
     }
 
@@ -27,8 +26,6 @@ int main(int argc, char *argv[]) {
     struct sockaddr_in servAddr;
     myMsg_t txMsg;
     char rxMsg[MAXBUFFSZ];
-    unsigned char clientId;
-    clientId = atoi(argv[3]);
 
     sockfd = socket(AF_INET, SOCK_DGRAM, 0);
     bzero(&servAddr, sizeof(servAddr));
@@ -36,9 +33,8 @@ int main(int argc, char *argv[]) {
     servAddr.sin_addr.s_addr = inet_addr(argv[1]);
     servAddr.sin_port = htons(atoi(argv[2]));
 
-    txMsg.id = atoi(argv[3]);
     txMsg.numElmt = 25;
-    srand(time(0) * clientId);
+    srand(time(0));
 
     for (unsigned int i = 0; i < txMsg.numElmt; i++) {
         txMsg.val[i] = (double)(rand() % 1000) / 100;
