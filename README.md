@@ -1,17 +1,27 @@
 # DSE3-Network-Programming
-1. Modify the given code to :
-a) Send 64-bit double precision numbers in place of 32-bit
-b) Each client should send double precision values between a configured range (e.g -v to +v). 
-Value of v should be informed to the client by the server in the first communication to
-that client.
-c) Make the server a multi-client one. The server should remember
-the last 5 values reported by each client - and compute a running 
-average for each client with last 5 reported values.
-d) If the average value for any client goes above 0.75*v, the server should archive those
-instances for each client-id.
-e) Exchange the following structure from client to server :
+
+This repository contains the code modifications for DSE3 Network Programming assignment. The modifications made are as follows:
+
+
+## Code Modifications
+
+1. Modified the code to send 64-bit double precision numbers instead of 32-bit.
+2. Each client sends double precision values between a configured range (e.g., -v to +v). The value of `v` is informed to the client by the server in the first communication to that client.
+3. Made the server a multi-client one. The server remembers the last 5 values reported by each client and computes a running average for each client with the last 5 reported values.
+4. If the average value for any client goes above 0.75*v, the server archives those instances for each client-id.
+5. Exchanged the following structure from client to server:
+    ```
     typedef struct {
         unsigned char id;
         unsigned int numElmt;
         double val[25];
     } myMsg_t;
+    ```
+
+
+## Contributors
+- [Dhruba Saha](https://github.com/dhrubasaah08) - made the modifications to the code.
+
+
+## License
+This project is released under the Unlicense. See the [LICENSE](LICENSE) file for more information.
