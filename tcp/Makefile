@@ -7,7 +7,7 @@ server: server.c unp.h
 		gcc -o server server.c
 
 clean:
-		rm -f client server dump.txt
+		rm -f client server
 
 tdump:	tdump
 		dos2unix tdump

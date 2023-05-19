@@ -1,2 +1,2 @@
 #ignore tcpdump log
-*.txt
+#*.txt

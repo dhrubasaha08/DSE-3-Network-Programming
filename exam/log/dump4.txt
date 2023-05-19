@@ -1,0 +1,54 @@
+17:34:42.811742 lo    In  IP 127.0.0.1.49210 > 127.0.0.1.8080: Flags [S], seq 3184132537, win 65495, options [mss 65495,sackOK,TS val 2024796572 ecr 0,nop,wscale 7], length 0
+17:34:42.811754 lo    In  IP 127.0.0.1.8080 > 127.0.0.1.49210: Flags [S.], seq 2883302480, ack 3184132538, win 65483, options [mss 65495,sackOK,TS val 2024796572 ecr 2024796572,nop,wscale 7], length 0
+17:34:42.811763 lo    In  IP 127.0.0.1.49210 > 127.0.0.1.8080: Flags [.], ack 2883302481, win 512, options [nop,nop,TS val 2024796572 ecr 2024796572], length 0
+17:34:42.813602 lo    In  IP 127.0.0.1.8080 > 127.0.0.1.49210: Flags [.], seq 2883302481:2883335249, ack 3184132538, win 512, options [nop,nop,TS val 2024796574 ecr 2024796572], length 32768: HTTP
+17:34:42.813627 lo    In  IP 127.0.0.1.49210 > 127.0.0.1.8080: Flags [.], ack 2883335249, win 379, options [nop,nop,TS val 2024796574 ecr 2024796574], length 0
+17:34:42.813643 lo    In  IP 127.0.0.1.8080 > 127.0.0.1.49210: Flags [P.], seq 2883335249:2883368017, ack 3184132538, win 512, options [nop,nop,TS val 2024796574 ecr 2024796572], length 32768: HTTP
+17:34:42.813673 lo    In  IP 127.0.0.1.49210 > 127.0.0.1.8080: Flags [.], ack 2883368017, win 512, options [nop,nop,TS val 2024796574 ecr 2024796574], length 0
+17:34:42.813769 lo    In  IP 127.0.0.1.8080 > 127.0.0.1.49210: Flags [.], seq 2883368017:2883400785, ack 3184132538, win 512, options [nop,nop,TS val 2024796574 ecr 2024796574], length 32768: HTTP
+17:34:42.813838 lo    In  IP 127.0.0.1.8080 > 127.0.0.1.49210: Flags [P.], seq 2883400785:2883433553, ack 3184132538, win 512, options [nop,nop,TS val 2024796574 ecr 2024796574], length 32768: HTTP
+17:34:42.813835 lo    In  IP 127.0.0.1.49210 > 127.0.0.1.8080: Flags [.], ack 2883400785, win 512, options [nop,nop,TS val 2024796574 ecr 2024796574], length 0
+17:34:42.813842 lo    In  IP 127.0.0.1.49210 > 127.0.0.1.8080: Flags [.], ack 2883433553, win 1535, options [nop,nop,TS val 2024796574 ecr 2024796574], length 0
+17:34:42.813858 lo    In  IP 127.0.0.1.8080 > 127.0.0.1.49210: Flags [.], seq 2883433553:2883466321, ack 3184132538, win 512, options [nop,nop,TS val 2024796574 ecr 2024796574], length 32768: HTTP
+17:34:42.813870 lo    In  IP 127.0.0.1.8080 > 127.0.0.1.49210: Flags [P.], seq 2883466321:2883499089, ack 3184132538, win 512, options [nop,nop,TS val 2024796574 ecr 2024796574], length 32768: HTTP
+17:34:42.813882 lo    In  IP 127.0.0.1.8080 > 127.0.0.1.49210: Flags [.], seq 2883499089:2883531857, ack 3184132538, win 512, options [nop,nop,TS val 2024796574 ecr 2024796574], length 32768: HTTP
+17:34:42.813884 lo    In  IP 127.0.0.1.49210 > 127.0.0.1.8080: Flags [.], ack 2883466321, win 2559, options [nop,nop,TS val 2024796574 ecr 2024796574], length 0
+17:34:42.813892 lo    In  IP 127.0.0.1.8080 > 127.0.0.1.49210: Flags [P.], seq 2883531857:2883564625, ack 3184132538, win 512, options [nop,nop,TS val 2024796574 ecr 2024796574], length 32768: HTTP
+17:34:42.813890 lo    In  IP 127.0.0.1.49210 > 127.0.0.1.8080: Flags [.], ack 2883499089, win 3582, options [nop,nop,TS val 2024796574 ecr 2024796574], length 0
+17:34:42.813893 lo    In  IP 127.0.0.1.49210 > 127.0.0.1.8080: Flags [.], ack 2883531857, win 4605, options [nop,nop,TS val 2024796574 ecr 2024796574], length 0
+17:34:42.813895 lo    In  IP 127.0.0.1.49210 > 127.0.0.1.8080: Flags [.], ack 2883564625, win 5628, options [nop,nop,TS val 2024796574 ecr 2024796574], length 0
+17:34:42.813906 lo    In  IP 127.0.0.1.8080 > 127.0.0.1.49210: Flags [.], seq 2883564625:2883597393, ack 3184132538, win 512, options [nop,nop,TS val 2024796574 ecr 2024796574], length 32768: HTTP
+17:34:42.813927 lo    In  IP 127.0.0.1.8080 > 127.0.0.1.49210: Flags [P.], seq 2883597393:2883630161, ack 3184132538, win 512, options [nop,nop,TS val 2024796574 ecr 2024796574], length 32768: HTTP
+17:34:42.813931 lo    In  IP 127.0.0.1.49210 > 127.0.0.1.8080: Flags [.], ack 2883597393, win 6651, options [nop,nop,TS val 2024796574 ecr 2024796574], length 0
+17:34:42.813938 lo    In  IP 127.0.0.1.49210 > 127.0.0.1.8080: Flags [.], ack 2883630161, win 7674, options [nop,nop,TS val 2024796574 ecr 2024796574], length 0
+17:34:42.813947 lo    In  IP 127.0.0.1.8080 > 127.0.0.1.49210: Flags [.], seq 2883630161:2883662929, ack 3184132538, win 512, options [nop,nop,TS val 2024796574 ecr 2024796574], length 32768: HTTP
+17:34:42.813949 lo    In  IP 127.0.0.1.49210 > 127.0.0.1.8080: Flags [.], ack 2883662929, win 8698, options [nop,nop,TS val 2024796574 ecr 2024796574], length 0
+17:34:42.813964 lo    In  IP 127.0.0.1.8080 > 127.0.0.1.49210: Flags [P.], seq 2883662929:2883695697, ack 3184132538, win 512, options [nop,nop,TS val 2024796574 ecr 2024796574], length 32768: HTTP
+17:34:42.813966 lo    In  IP 127.0.0.1.49210 > 127.0.0.1.8080: Flags [.], ack 2883695697, win 9721, options [nop,nop,TS val 2024796574 ecr 2024796574], length 0
+17:34:42.813980 lo    In  IP 127.0.0.1.8080 > 127.0.0.1.49210: Flags [.], seq 2883695697:2883728465, ack 3184132538, win 512, options [nop,nop,TS val 2024796574 ecr 2024796574], length 32768: HTTP
+17:34:42.814002 lo    In  IP 127.0.0.1.8080 > 127.0.0.1.49210: Flags [P.], seq 2883728465:2883761233, ack 3184132538, win 512, options [nop,nop,TS val 2024796574 ecr 2024796574], length 32768: HTTP
+17:34:42.814018 lo    In  IP 127.0.0.1.8080 > 127.0.0.1.49210: Flags [.], seq 2883761233:2883794001, ack 3184132538, win 512, options [nop,nop,TS val 2024796574 ecr 2024796574], length 32768: HTTP
+17:34:42.814019 lo    In  IP 127.0.0.1.49210 > 127.0.0.1.8080: Flags [.], ack 2883728465, win 10744, options [nop,nop,TS val 2024796574 ecr 2024796574], length 0
+17:34:42.814021 lo    In  IP 127.0.0.1.49210 > 127.0.0.1.8080: Flags [.], ack 2883761233, win 11767, options [nop,nop,TS val 2024796574 ecr 2024796574], length 0
+17:34:42.814024 lo    In  IP 127.0.0.1.49210 > 127.0.0.1.8080: Flags [.], ack 2883794001, win 12790, options [nop,nop,TS val 2024796574 ecr 2024796574], length 0
+17:34:42.814054 lo    In  IP 127.0.0.1.8080 > 127.0.0.1.49210: Flags [P.], seq 2883794001:2883859484, ack 3184132538, win 512, options [nop,nop,TS val 2024796574 ecr 2024796574], length 65483: HTTP
+17:34:42.814057 lo    In  IP 127.0.0.1.49210 > 127.0.0.1.8080: Flags [.], ack 2883859484, win 13813, options [nop,nop,TS val 2024796575 ecr 2024796574], length 0
+17:34:42.814124 lo    In  IP 127.0.0.1.8080 > 127.0.0.1.49210: Flags [.], seq 2883859484:2883924967, ack 3184132538, win 512, options [nop,nop,TS val 2024796575 ecr 2024796574], length 65483: HTTP
+17:34:42.814129 lo    In  IP 127.0.0.1.49210 > 127.0.0.1.8080: Flags [.], ack 2883924967, win 14837, options [nop,nop,TS val 2024796575 ecr 2024796575], length 0
+17:34:42.814159 lo    In  IP 127.0.0.1.8080 > 127.0.0.1.49210: Flags [.], seq 2883924967:2883990450, ack 3184132538, win 512, options [nop,nop,TS val 2024796575 ecr 2024796574], length 65483: HTTP
+17:34:42.814162 lo    In  IP 127.0.0.1.49210 > 127.0.0.1.8080: Flags [.], ack 2883990450, win 15860, options [nop,nop,TS val 2024796575 ecr 2024796575], length 0
+17:34:42.814195 lo    In  IP 127.0.0.1.8080 > 127.0.0.1.49210: Flags [.], seq 2883990450:2884055933, ack 3184132538, win 512, options [nop,nop,TS val 2024796575 ecr 2024796574], length 65483: HTTP
+17:34:42.814198 lo    In  IP 127.0.0.1.49210 > 127.0.0.1.8080: Flags [.], ack 2884055933, win 16883, options [nop,nop,TS val 2024796575 ecr 2024796575], length 0
+17:34:42.814229 lo    In  IP 127.0.0.1.8080 > 127.0.0.1.49210: Flags [.], seq 2884055933:2884121416, ack 3184132538, win 512, options [nop,nop,TS val 2024796575 ecr 2024796574], length 65483: HTTP
+17:34:42.814233 lo    In  IP 127.0.0.1.49210 > 127.0.0.1.8080: Flags [.], ack 2884121416, win 17906, options [nop,nop,TS val 2024796575 ecr 2024796575], length 0
+17:34:42.814257 lo    In  IP 127.0.0.1.8080 > 127.0.0.1.49210: Flags [.], seq 2884121416:2884186899, ack 3184132538, win 512, options [nop,nop,TS val 2024796575 ecr 2024796574], length 65483: HTTP
+17:34:42.814260 lo    In  IP 127.0.0.1.49210 > 127.0.0.1.8080: Flags [.], ack 2884186899, win 18929, options [nop,nop,TS val 2024796575 ecr 2024796575], length 0
+17:34:42.814283 lo    In  IP 127.0.0.1.8080 > 127.0.0.1.49210: Flags [.], seq 2884186899:2884252382, ack 3184132538, win 512, options [nop,nop,TS val 2024796575 ecr 2024796574], length 65483: HTTP
+17:34:42.814286 lo    In  IP 127.0.0.1.49210 > 127.0.0.1.8080: Flags [.], ack 2884252382, win 19952, options [nop,nop,TS val 2024796575 ecr 2024796575], length 0
+17:34:42.814310 lo    In  IP 127.0.0.1.8080 > 127.0.0.1.49210: Flags [.], seq 2884252382:2884317865, ack 3184132538, win 512, options [nop,nop,TS val 2024796575 ecr 2024796574], length 65483: HTTP
+17:34:42.814313 lo    In  IP 127.0.0.1.49210 > 127.0.0.1.8080: Flags [.], ack 2884317865, win 20976, options [nop,nop,TS val 2024796575 ecr 2024796575], length 0
+17:34:42.814328 lo    In  IP 127.0.0.1.8080 > 127.0.0.1.49210: Flags [P.], seq 2884317865:2884351057, ack 3184132538, win 512, options [nop,nop,TS val 2024796575 ecr 2024796574], length 33192: HTTP
+17:34:42.814331 lo    In  IP 127.0.0.1.49210 > 127.0.0.1.8080: Flags [.], ack 2884351057, win 21341, options [nop,nop,TS val 2024796575 ecr 2024796575], length 0
+17:34:42.814547 lo    In  IP 127.0.0.1.8080 > 127.0.0.1.49210: Flags [F.], seq 2884351057, ack 3184132538, win 512, options [nop,nop,TS val 2024796575 ecr 2024796575], length 0
+17:34:42.817348 lo    In  IP 127.0.0.1.49210 > 127.0.0.1.8080: Flags [F.], seq 3184132538, ack 2884351058, win 21341, options [nop,nop,TS val 2024796578 ecr 2024796575], length 0
+17:34:42.817361 lo    In  IP 127.0.0.1.8080 > 127.0.0.1.49210: Flags [.], ack 3184132539, win 512, options [nop,nop,TS val 2024796578 ecr 2024796578], length 0
